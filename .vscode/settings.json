@@ -1,0 +1,18 @@
+{
+	"prettier.configPath": "../.prettierrc",
+	"prettier.requireConfig": true,
+	"editor.formatOnPaste": true,
+	"editor.formatOnSave": true,
+	"editor.formatOnSaveMode": "modifications",
+	"editor.formatOnType": true,
+	"eslint.format.enable": true,
+	"editor.tabCompletion": "onlySnippets",
+	"editor.tabSize": 4,
+	"editor.insertSpaces": false,
+	"editor.detectIndentation": false,
+	"[json]": {
+		"editor.formatOnSave": false,
+		"editor.formatOnPaste": false,
+		"editor.formatOnType": false
+	}
+}
