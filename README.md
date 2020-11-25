@@ -15,7 +15,7 @@ Project implemented in nodejs-express and mysql
 
 5. run `node database/setup.js` to setup the database
 
-6. run `node database/index.js` to setup sample data
+6. run `node database/sample.js` to setup sample data
 
 7. run `npm start` to start the project (`node index.js`)
 
