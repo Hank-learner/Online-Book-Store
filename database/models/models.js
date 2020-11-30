@@ -229,6 +229,10 @@ const BoughtHistory = sequelize.define(
 			type: DataTypes.INTEGER,
 			allowNull: false,
 		},
+		delivered: {
+			type: DataTypes.BOOLEAN,
+			allowNull: false,
+		},
 	},
 	{
 		freezeTableName: true,
@@ -254,6 +258,10 @@ const CustomerCart = sequelize.define(
 		},
 		stockID: {
 			type: DataTypes.INTEGER,
+			allowNull: false,
+		},
+		bought: {
+			type: DataTypes.BOOLEAN,
 			allowNull: false,
 		},
 	},

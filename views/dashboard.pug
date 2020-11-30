@@ -11,7 +11,7 @@ html(lang='en')
 			li 
 				a(href="dashboard" class="active") Dashboard
 			li 
-				a(href="cart") Cart
+				a(href="addStock") Cart
 			li(style="float:right")
 				a(href="logout") logout
 		#message
@@ -74,22 +74,42 @@ html(lang='en')
 					tr
 						th id
 						th bookid
+						th name
+						th author
+						th category
+						th rating 
 						th quantity
 						th price
 						th sellerID
+						th seller name
+						th seller contact
+						th Enter quantity
+						th add to cart
 				tbody
 					each stock in stocks
 						tr
 							td= stock.id
 							td= stock.bookID
+							td= stock.book.name
+							td= stock.book.author
+							td= stock.book.category
+							td= stock.book.rating
 							td= stock.quantity
 							td= stock.price
 							td= stock.sellerID
+							td= stock.sellerUser.name
+							td= stock.seller.contact
+							form(action="/dashboard" method='POST')
+								input(type="hidden" name="stockID" value=stock.id)
+								input(type="hidden" name="quantity" value=stock.quantity)
+								td
+									input(type="number" name="getQuantity" min=0 max=stock.quantity placeholder="enter quantity")
+								td
+									input(type="submit" value="add to cart")
 					else
 						tr there are no stock data
 			br
 			br
-
 
 
 	//- script(src='js/script.js')

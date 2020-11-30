@@ -11,7 +11,7 @@ html(lang='en')
 			li 
 				a(href="dashboard" class="active") Dashboard
 			li 
-				a(href="cart") Cart
+				a(href="addStock") Cart
 			li(style="float:right")
 				a(href="logout") logout
 		#message
@@ -63,7 +63,7 @@ html(lang='en')
 				br
 				p Add stock for a Book
 				br
-				form(action='/addStock', method='POST').addBook-form
+				form(action='/addStock' method='POST').addBook-form
 					input.input(type='number' name='bookID' placeholder='Book id' required)
 					br
 					input.input(type='number' name='quantity' placeholder='Auantity Stock' required)
@@ -75,4 +75,44 @@ html(lang='en')
 					br
 					p #{addStockState}
 		else
-			p not authorised
+			br
+			br
+			h3 cart
+			table
+				thead
+					tr
+						th id
+						th bookid
+						th name
+						th author
+						th category
+						th rating 
+						th quantity
+						th price
+						th total price
+						th sellerID
+						th seller name
+						th seller contact
+				tbody
+					each cart in carts
+						tr
+							td= cart.id
+							td= cart.stock.bookID
+							td= cart.stock.book.name
+							td= cart.stock.book.author
+							td= cart.stock.book.category
+							td= cart.stock.book.rating
+							td= cart.quantity
+							td= cart.stock.price
+							td= cart.quantity*cart.stock.price
+							td= cart.stock.sellerID
+							td= cart.stock.sellerUser.name
+							td= cart.stock.seller.contact
+					else
+						tr there are no cart items
+			br
+			br
+			form(action="/addStock" method='POST')
+				p total cart cost: #{cartPrice}
+				input(type="submit" value="buy all")
+
