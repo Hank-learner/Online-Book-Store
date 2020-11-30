@@ -13,10 +13,12 @@ async function sample() {
 		await database.Seller.create({
 			name: 'seller 1',
 			contact: '9876543210',
+			password: 'testpass',
 		});
 		await database.Customer.create({
 			name: 'cus 1',
 			address: '12 hnoar stree, anod',
+			password: 'testpass',
 		});
 	} catch (error) {
 		pinologger.error(error);

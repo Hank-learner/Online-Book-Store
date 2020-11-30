@@ -1,0 +1,78 @@
+doctype html
+html(lang='en')
+	head
+		meta(charset='UTF-8')
+		meta(name='viewport' content='width=device-width, initial-scale=1.0')
+		meta(http-equiv='X-UA-Compatible' content='ie=edge')
+		title Dashboard
+		link(rel='stylesheet' href='./styles/dashboard.css')
+	body
+		ul
+			li 
+				a(href="dashboard" class="active") Dashboard
+			li 
+				a(href="cart") Cart
+			li(style="float:right")
+				a(href="logout") logout
+		#message
+			h1 Hello , Welcome 
+
+		if isSeller == true
+			h3 book list
+			table
+				thead
+					tr
+						th id
+						th name
+						th author
+						th category
+						th rating
+				tbody
+					each book in books
+						tr
+							td= book.id
+							td= book.name
+							td= book.author
+							td= book.category
+							td= book.rating
+					else
+						tr there are no book data
+			br
+			br
+			br
+			h3 stock list
+			table
+				thead
+					tr
+						th id
+						th bookid
+						th quantity
+						th price
+				tbody
+					each stock in stocks
+						tr
+							td= stock.id
+							td= stock.bookID
+							td= stock.quantity
+							td= stock.price
+					else
+						tr there are no stock data
+			br
+			br
+			.add-stock
+				br
+				p Add stock for a Book
+				br
+				form(action='/addStock', method='POST').addBook-form
+					input.input(type='number' name='bookID' placeholder='Book id' required)
+					br
+					input.input(type='number' name='quantity' placeholder='Auantity Stock' required)
+					br
+					input.input(type='number' name='price' placeholder='Single price' required)
+					br
+					input(type="hidden" name="action" value="addStock")
+					input.btn(type='submit' value='add Stock')
+					br
+					p #{addStockState}
+		else
+			p not authorised

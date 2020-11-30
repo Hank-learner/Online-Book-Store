@@ -1,0 +1,30 @@
+doctype html
+html(lang='en')
+	head
+		meta(charset='UTF-8')
+		meta(name='viewport' content='width=device-width, initial-scale=1.0')
+		meta(http-equiv='X-UA-Compatible' content='ie=edge')
+		title Login
+		link(rel='stylesheet' href='./styles/login.css')
+		//- script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+	body
+		ul
+			li 
+				a(href="dashboard") Dashboard
+			li 
+				a(href="cart") Cart
+		.wrapper
+			.container
+				.signup 
+					a(href='/register') Sign Up
+				.login Log In
+				form(action='/login', method='POST').login-form
+					input.input(type='text' name='username' placeholder='Username' required)
+					br
+					input.input(type='password' name='password' placeholder='Password' required)
+					br
+					input.btn(type='submit' value='Log in')
+					br
+					p #{state}
+					//- span
+					//- 	a(href='#') forgot my username or password.

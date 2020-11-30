@@ -1,0 +1,41 @@
+doctype html
+html(lang='en')
+	head
+		meta(charset='UTF-8')
+		meta(name='viewport' content='width=device-width, initial-scale=1.0')
+		meta(http-equiv='X-UA-Compatible' content='ie=edge')
+		title Register
+		link(rel='stylesheet' href='./styles/login.css')
+		//- script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+	body
+		ul
+			li 
+				a(href="dashboard") Dashboard
+			li 
+				a(href="cart") Cart
+		.wrapper
+			.container
+				.signup Sign Up
+				.login 
+					a(href='/login') Log-In
+				form(action='/register' method='POST').signup-form
+					input.input(type='text' name='username' placeholder='Choose a Username' required)
+					br
+					input.input(type='password' name='password' placeholder='Choose a Password' required)
+					br
+					input.input(type='text' name='contact' placeholder='Contact' required)
+					br
+					label category : 
+					br
+					br
+					pre
+						input(type='radio' name='type' id='seller' value='seller' required)
+						label(for='seller') seller
+					pre
+						input(type='radio' name='type' id='customer' value='customer' required)
+						label(for='customer') customer
+					br
+					br
+					input.btn(type='submit' value='Register')
+					br
+					p #{state}
